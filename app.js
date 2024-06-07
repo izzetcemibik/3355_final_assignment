@@ -1,6 +1,9 @@
 const express = require('express');
 const ejs = require('ejs');
-
+const express = require('express');
+const mysql = require('mysql');
+const session = require('express-session');
+const bcrypt = require('bcryptjs');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
