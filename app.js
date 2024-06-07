@@ -11,33 +11,26 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 // Database connection setup
-const dbConfig = {
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-};
+const connection = mysql.createConnection({
+    host: 'final3355db.mysql.database.azure.com',
+    user: 'izzet',
+    password: '12345Izo',
+    database: 'izzetcemibik_19070001035_finalassignment'
+  });
+  
+  // Event: Connection Established
+  connection.connect((err) => {
+    if (err) {
+        console.error('Error connecting to MySQL database:', err);
+        return;
+    }
+    console.log('Connected to MySQL database');
+  });
 
 // Create a MySQL pool
-const pool = mysql.createPool(dbConfig);
 
 app.get('/', (req, res) => {
-    pool.getConnection((err, connection) => {
-        if (err) {
-            console.error('Error connecting to the database:', err);
-            res.status(500).send('Database connection failed');
-            return;
-        }
-        connection.query('SELECT 1', (err, results) => {
-            connection.release();
-            if (err) {
-                console.error('Error executing query:', err);
-                res.status(500).send('Error executing query');
-                return;
-            }
-            res.send('Hello, World! Database connected successfully.');
-        });
-    });
+    res.send('Hello, World!');
 });
 
 app.listen(PORT, () => {
