@@ -12,10 +12,10 @@ app.use(express.static('public'));
 
 // Database connection setup
 const dbConfig = {
-    host: 'final3355db.mysql.database.azure.com',
-    user: 'izzet',
-    password: '12345Izo',
-    database: 'izzetcemibik_19070001035_finalassignment'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 };
 
 // Create a MySQL pool
