@@ -11,10 +11,10 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 const dbConfig = {
-    host: 'se3355midtermdb.mysql.database.azure.com',
-    user: 'midtermizzetcemibik',
+    host: 'final3355db.mysql.database.azure.com',
+    user: 'izzet',
     password: '12345Izo',
-    database: 'izzetcemibik_19070001035_finalassignment',
+    database: 'izzetcemibik_19070001035_finalassignment'
 };
 
 app.get('/', (req, res) => {
