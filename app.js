@@ -1,14 +1,14 @@
 require('dotenv').config(); // Load environment variables from a .env file
 const express = require('express');
-const ejs = require('ejs');
+
 const mysql = require('mysql');
 const session = require('express-session');
-const bcrypt = require('bcryptjs');
-const app = express();
-const PORT = process.env.PORT || 8080;
 
-app.set('view engine', 'ejs');
-app.use(express.static('public'));
+const app = express();
+const PORT = 8080;
+
+//app.set('view engine', 'ejs');
+//app.use(express.static('public'));
 
 // Database connection setup
 const connection = mysql.createConnection({
